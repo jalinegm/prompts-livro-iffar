@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Prompts do livro — Engenharia de Prompts para Escrita Acadêmica com IA Generativa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para os prompts</a>
+
+  <!-- Região global de anúncios para leitores de tela (copiar prompt/link) -->
+  <div id="anuncio-global" class="sr-only" role="status" aria-live="polite"></div>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="topbar__brand">
+        <span class="topbar__editora"><img src="./img/logoEditora.png" alt="logo Editora" class="img"></span>
+        <span class="topbar__livro">
+          Engenharia de Prompts para Escrita Acadêmica com IA Generativa</span>
+
+      </div>
+      <div class="topbar__acoes">
+        <button type="button" id="botao-capitulos" class="botao-capitulos" aria-haspopup="dialog"
+          aria-controls="painel-sumario" aria-expanded="false">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="14" y2="18"></line>
+          </svg>
+          <span>Capítulos</span>
+          <svg aria-hidden="true" class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <a class="topbar__link-livro" href="https://editora.iffarroupilha.edu.br/index.php/editora/catalog"
+          target="_blank" rel="noopener"><!-- TODO: URL do livro -->
+          Acesse o livro <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="intro">
+      <h1>Prompts do livro</h1>
+      <p class="intro__lede">Copie o prompt, use no seu assistente.</p>
+    </section>
+
+    <div class="buscabar" id="buscabar">
+      <div class="buscabar__linha">
+        <button type="button" id="botao-menu-desktop" class="botao-menu-desktop" aria-pressed="false"
+          aria-controls="sumario-desktop">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="14" y2="18"></line>
+          </svg>
+          <span>Ocultar menu</span>
+        </button>
+        <div class="busca">
+          <label for="busca-input" class="sr-only">Buscar prompts</label>
+          <svg class="busca__icone" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="busca-input"
+            placeholder="Buscar por figura, capítulo ou termo (ex.: Figura 12, resumo, Paulo Freire)"
+            autocomplete="off">
+          <button type="button" id="busca-limpar" class="busca__limpar" aria-label="Limpar busca" hidden>×</button>
+        </div>
+      </div>
+      <div class="buscabar__linha2">
+        <p id="contador" class="contador" aria-live="polite">37 prompts</p>
+        <div class="buscabar__acoes-secundarias">
+          <button type="button" id="botao-capitulos-tablet" class="botao-capitulos--tablet" aria-haspopup="dialog"
+            aria-controls="painel-sumario" aria-expanded="false">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="18" x2="14" y2="18"></line>
+            </svg>
+            <span>Capítulos</span>
+          </button>
+          <button type="button" id="botao-compacto" class="toggle-compacto" aria-pressed="false">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            Modo compacto
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <nav class="sumario" aria-label="Capítulos" id="sumario-desktop"></nav>
+
+      <main id="conteudo" class="conteudo">
+        <div id="estado-vazio" class="estado-vazio" hidden>
+          <p><span id="estado-vazio-termo"></span></p>
+          <button type="button" id="estado-vazio-limpar" class="botao-secundario">Limpar busca</button>
+        </div>
+        <div id="lista-capitulos"></div>
+      </main>
+    </div>
+
+    <footer class="rodape">
+      <div class="rodape__bloco">
+        <h2 class="rodape__titulo">Como citar este material</h2>
+        <p class="rodape__citacao">
+          SACHETE, Andréia dos Santos; MOMBACH, Jaline Gonçalves; GOMES, Raquel Salcedo; ROSSI, Fábio Diniz.
+          <em>Engenharia de Prompts para Escrita Acadêmica com IA Generativa</em>: material complementar — prompts do
+          livro.
+          <!-- TODO: cidade, editora, ano e URL definitivos --> [S. l.]: Editora IFFar, [20--]. Disponível em:
+          <!-- TODO: URL -->. Acesso em: <!-- TODO: data -->.
+        </p>
+      </div>
+      <div class="rodape__bloco">
+        <h2 class="rodape__titulo">Licença</h2>
+        <p><!-- TODO: definir licença de uso (ex.: CC BY-NC-SA 4.0) --></p>
+      </div>
+      <p class="rodape__data">Última atualização: <time datetime="2026-09-25">25 de setembro de 2026</time></p>
+    </footer>
+  </div>
+
+  <!-- Painel de capítulos (tablet: lateral / celular: bottom sheet) -->
+  <div id="painel-overlay" class="painel-overlay" hidden></div>
+  <div id="painel-sumario" class="painel-sumario" role="dialog" aria-modal="true" aria-label="Capítulos" hidden>
+    <div class="painel-sumario__cabecalho">
+      <h2>Capítulos</h2>
+      <button type="button" id="painel-fechar" class="painel-fechar" aria-label="Fechar painel de capítulos">×</button>
+    </div>
+    <nav class="painel-sumario__nav" id="sumario-painel" aria-label="Capítulos"></nav>
+  </div>
+
+  <button type="button" id="botao-topo" class="botao-topo" aria-label="Voltar ao topo" hidden>
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <script src="prompts.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
