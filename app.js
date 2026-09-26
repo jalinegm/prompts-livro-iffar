@@ -376,25 +376,6 @@
     });
     acoes.appendChild(botaoCopiar);
 
-    var botaoLink = document.createElement("button");
-    botaoLink.type = "button";
-    botaoLink.className = "botao-copiar-link";
-    botaoLink.textContent = "Copiar link";
-    botaoLink.addEventListener("click", function () {
-      var url = location.origin + location.pathname + "#" + item.id;
-      copiarTexto(url).then(function () {
-        var textoOriginal = "Copiar link";
-        botaoLink.textContent = "Copiado ✓";
-        botaoLink.classList.add("copiado");
-        anunciar("Link da Figura " + (item.figura || item.id) + " copiado");
-        setTimeout(function () {
-          botaoLink.textContent = textoOriginal;
-          botaoLink.classList.remove("copiado");
-        }, 2000);
-      });
-    });
-    acoes.appendChild(botaoLink);
-
     corpo.appendChild(acoes);
 
     if (item.resposta) {
@@ -654,23 +635,6 @@
     });
   }
 
-  // ===== Permalink inicial (#fig-12 / #cap-8) =====
-  function tratarPermalinkInicial() {
-    var hash = location.hash ? location.hash.slice(1) : "";
-    if (!hash) return;
-    setTimeout(function () {
-      var alvo = document.getElementById(hash);
-      if (!alvo) return;
-      alvo.scrollIntoView({ behavior: prefereReduzirMovimento() ? "auto" : "smooth", block: "start" });
-      alvo.setAttribute("tabindex", "-1");
-      alvo.focus({ preventScroll: true });
-      if (alvo.classList.contains("cartao")) {
-        alvo.classList.add("destacar");
-        setTimeout(function () { alvo.classList.remove("destacar"); }, 2000);
-      }
-    }, 60);
-  }
-
   // ===== Início =====
   document.addEventListener("DOMContentLoaded", function () {
     iniciarBusca();
@@ -679,6 +643,5 @@
     iniciarPainelCapitulos();
     iniciarBotaoTopo();
     renderizarLista();
-    tratarPermalinkInicial();
   });
 })();

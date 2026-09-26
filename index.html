@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Prompts do livro — Engenharia de Prompts para Escrita Acadêmica com IA Generativa</title>
+  <title>Prompts do livro Engenharia de Prompts para Escrita Acadêmica com IA Generativa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -20,10 +20,10 @@
   <header class="topbar">
     <div class="topbar__inner">
       <div class="topbar__brand">
-        <span class="topbar__editora"><img src="./img/logoEditora.png" alt="logo Editora" class="img"></span>
-        <span class="topbar__livro">
-          Engenharia de Prompts para Escrita Acadêmica com IA Generativa</span>
-
+        <img src="./img/logoEditora.png" alt="logo Editora" class="topbar__editora" />
+        <h1>Engenharia de Prompts para Escrita Acadêmica com IA Generativa</h1>
+        <p class="topbar__autores">Andréia dos Santos Sachete, Jaline Gonçalves Mombach, Raquel Salcedo Gomes, Fábio
+          Diniz Rossi</p>
       </div>
       <div class="topbar__acoes">
         <button type="button" id="botao-capitulos" class="botao-capitulos" aria-haspopup="dialog"
@@ -40,18 +40,34 @@
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
-        <a class="topbar__link-livro" href="https://editora.iffarroupilha.edu.br/index.php/editora/catalog"
-          target="_blank" rel="noopener"><!-- TODO: URL do livro -->
-          Acesse o livro <span aria-hidden="true">↗</span>
-        </a>
       </div>
     </div>
   </header>
 
   <div class="wrap">
     <section class="intro">
-      <h1>Prompts do livro</h1>
-      <p class="intro__lede">Copie o prompt, use no seu assistente.</p>
+
+      <div class="intro__topo">
+        <a class="link-livro" href="https://editora.iffarroupilha.edu.br/index.php/editora/catalog" target="_blank"
+          rel="noopener"><!-- TODO: URL do livro -->
+          Acesse o livro <span aria-hidden="true">↗</span>
+        </a>
+        <details class="resposta-disclosure como-citar">
+          <summary>Como citar</summary>
+          <div class="resposta-corpo">
+            <p class="rodape__citacao">
+              SACHETE, Andréia dos Santos; MOMBACH, Jaline Gonçalves; GOMES, Raquel Salcedo; ROSSI, Fábio Diniz.
+              <em>Engenharia de Prompts para Escrita Acadêmica com IA Generativa</em>.
+              <!-- TODO: cidade, editora, ano e URL definitivos --> [S. l.]: Editora IFFar, 2026. Disponível em:
+              https://editora.iffarroupilha.edu.br/index.php/editora/catalog
+              <!-- TODO: URL -->. Acesso em: <em>data</em> <!-- TODO: data -->.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <h1>Prompts</h1>
+      <p class="intro__lede">Copie o prompt, use no seu assistente de IA preferido.</p>
     </section>
 
     <div class="buscabar" id="buscabar">
@@ -119,17 +135,7 @@
 
     <footer class="rodape">
       <div class="rodape__bloco">
-        <h2 class="rodape__titulo">Como citar este material</h2>
-        <p class="rodape__citacao">
-          SACHETE, Andréia dos Santos; MOMBACH, Jaline Gonçalves; GOMES, Raquel Salcedo; ROSSI, Fábio Diniz.
-          <em>Engenharia de Prompts para Escrita Acadêmica com IA Generativa</em>: material complementar — prompts do
-          livro.
-          <!-- TODO: cidade, editora, ano e URL definitivos --> [S. l.]: Editora IFFar, [20--]. Disponível em:
-          <!-- TODO: URL -->. Acesso em: <!-- TODO: data -->.
-        </p>
-      </div>
-      <div class="rodape__bloco">
-        <h2 class="rodape__titulo">Licença</h2>
+        <!--<h2 class="rodape__titulo">Licença</h2>-->
         <p><!-- TODO: definir licença de uso (ex.: CC BY-NC-SA 4.0) --></p>
       </div>
       <p class="rodape__data">Última atualização: <time datetime="2026-09-25">25 de setembro de 2026</time></p>

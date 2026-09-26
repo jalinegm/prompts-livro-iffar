@@ -12,7 +12,7 @@
   --sucesso: #1f7a4d;
   --fonte: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
 
-  --altura-topbar: 84px;
+  --altura-topbar: 250px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -154,9 +154,25 @@ mark {
 }
 
 .topbar__brand {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  margin-block: auto;
+  padding-block: 28px;
+}
+
+.topbar__brand h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 16px 0 0 12px;
+}
+
+.topbar__autores {
+  margin: 4px 0 0 12px;
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.topbar__editora {
+  margin-bottom: 6px;
 }
 
 .topbar__livro {
@@ -165,7 +181,7 @@ mark {
   transform: translateY(8px);
 }
 
-.topbar__editora .img {
+.topbar__editora {
   display: block;
   width: auto;
   height: 48px;
@@ -186,21 +202,6 @@ mark {
   align-items: center;
   gap: 10px;
   flex: none;
-}
-
-.topbar__link-livro {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.topbar__link-livro:hover {
-  background: rgba(255, 255, 255, 0.22);
 }
 
 .botao-capitulos {
@@ -310,11 +311,6 @@ mark {
   padding: 11px 38px 11px 40px;
   font-size: 16px;
   color: var(--texto);
-}
-
-.img {
-  height: 50px;
-  width: auto;
 }
 
 .busca__limpar {
@@ -462,16 +458,21 @@ mark {
   }
   .topbar__inner {
     align-items: flex-start;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
   .topbar__brand {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
     min-width: 0;
+    width: 100%;
   }
   .topbar__editora .img {
     height: 36px;
+  }
+  .topbar__brand h1,
+  .topbar__autores {
+    margin-left: 0;
   }
   .topbar__livro {
     font-size: 15.5px;
@@ -484,7 +485,9 @@ mark {
     opacity: 1;
   }
   .topbar__acoes {
-    padding-top: 2px;
+    order: 3;
+    width: 100%;
+    padding-top: 6px;
   }
 
   /* Busca fixa assume a posição de topo já que o header não é mais sticky */
@@ -617,18 +620,6 @@ mark {
   scroll-margin-top: calc(var(--altura-topbar) + 92px);
 }
 
-.cartao.destacar {
-  animation: pulso-borda 2s ease-out;
-}
-@keyframes pulso-borda {
-  0% {
-    box-shadow: 0 0 0 3px var(--azul-marinho);
-  }
-  100% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-}
-
 .cartao__cabecalho {
   display: flex;
   flex-wrap: wrap;
@@ -735,8 +726,7 @@ mark {
   gap: 10px;
 }
 
-.botao-primario,
-.botao-copiar-link {
+.botao-primario {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -761,20 +751,47 @@ mark {
   border-color: var(--sucesso);
 }
 
-.botao-copiar-link {
-  background: var(--superficie);
-  color: var(--azul-marinho);
-  border: 1.5px solid var(--borda);
-}
-.botao-copiar-link.copiado {
-  color: var(--sucesso);
-  border-color: var(--sucesso);
-}
-
 .resposta-disclosure {
   border: 1px solid var(--borda);
   border-radius: 10px;
   overflow: hidden;
+}
+
+.intro__topo {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.como-citar {
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+/* Botão discreto ao lado de "Como citar", mesmo estilo outline */
+.link-livro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto-secundario);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.link-livro:hover {
+  background: var(--fundo);
+  color: var(--texto);
+}
+.link-livro:focus-visible {
+  outline: 2px solid var(--azul-marinho);
+  outline-offset: 2px;
 }
 
 .resposta-disclosure summary {
@@ -1005,8 +1022,7 @@ body {
   .acoes {
     flex-direction: column;
   }
-  .botao-primario,
-  .botao-copiar-link {
+  .botao-primario {
     width: 100%;
     justify-content: center;
   }
